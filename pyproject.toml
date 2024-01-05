@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sierra"
+version = "0.0.1"
+authors = [
+  { name="Adam Muhtar", email="adam.muhtar23@imperial.ac.uk" },
+]
+description = "Semantic Information Encoding, Retrieval, and Reasoning Architecture (SIERRA)"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+addopts = [
+    "--import-mode=importlib",
+]

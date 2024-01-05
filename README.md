@@ -1,2 +1,2 @@
-# sierra
-Semantic Information Encoding, Retrieval, and Reasoning Agent
+# **Semantic Information Encoding, Retrieval, and Reasoning Agent (SIERRA)**
+
