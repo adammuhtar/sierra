@@ -1,0 +1,17 @@
+name: sierra
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - easyocr
+  - langchain
+  - langgraph
+  - pandas
+  - pillow
+  - pymupdf
+  - sentence-transformers
+  - torch
+  - torchvision
+  - tqdm
+  - transformers

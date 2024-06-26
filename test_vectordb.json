@@ -1,0 +1,20 @@
+[
+    {
+        "Test Corpus": [
+            {
+                "source": "doc1",
+                "contents": [
+                    {
+                        "page_content": "test content",
+                        "metadata": {
+                            "page": 1,
+                            "embedding": "embedding",
+                            "doc_uuid": "33a911a0-1bda-4be8-9dd6-276bd6939239"
+                        },
+                        "type": "Document"
+                    }
+                ]
+            }
+        ]
+    }
+]
