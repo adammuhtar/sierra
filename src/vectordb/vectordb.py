@@ -11,17 +11,17 @@ from langchain.schema import Document
 from PIL import Image
 import pymupdf
 from sentence_transformers import SentenceTransformer, util
-
 import tqdm
 
 # Local application imports 
-from .utils import preprocess_text
+from .extraction import preprocess_text
 
 # Configure logging
 logging.basicConfig(
     level=logging.WARNING,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
+logger = logging.getLogger(__name__)
 
 
 class VectorDBEntry:
@@ -301,7 +301,7 @@ class VectorDBGenerator:
             files, desc="Extracting text", unit="PDF", total=len(files)
         ):
             if not pdf_path.is_file():
-                logging.error(f"File not found: {pdf_path}")
+                logger.error(f"File not found: {pdf_path}")
                 continue
 
             store = {"source": pdf_path.stem, "contents": []}
@@ -310,7 +310,7 @@ class VectorDBGenerator:
             try:
                 doc = pymupdf.open(filename=str(pdf_path))
             except Exception as e:
-                logging.error(f"Error opening {pdf_path}: {e}")
+                logger.error(f"Error opening {pdf_path}: {e}")
                 continue
             
             if self.resolution == "block":
@@ -429,4 +429,4 @@ class VectorDBGenerator:
             )
             contents.append(document)
         except Exception as e:
-            logging.error(f"Error processing text block/page: {e}")
+            logger.error(f"Error processing text block/page: {e}")

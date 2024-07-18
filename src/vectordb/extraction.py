@@ -19,6 +19,7 @@ logging.basicConfig(
     level=logging.WARNING,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
+logger = logging.getLogger(__name__)
 
 
 def download_files(urls: List[Dict[str, list]], folder_path: Path) -> None:
@@ -59,7 +60,7 @@ def download_files(urls: List[Dict[str, list]], folder_path: Path) -> None:
 
                 # Write the file to the specified folder
                 if (company_folder_path / file_name).exists():
-                    logging.info(f"{file_name} already exists in {company_name} folder.")
+                    logger.info(f"{file_name} already exists in {company_name} folder.")
                     continue
                 else:
                     with open(company_folder_path / file_name, "wb") as file:
